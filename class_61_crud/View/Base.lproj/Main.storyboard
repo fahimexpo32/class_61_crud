@@ -20,7 +20,7 @@
                                 <rect key="frame" x="10" y="54" width="394" height="413"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="302" id="HbI-Qc-R1v">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCellIdentyfier" rowHeight="302" id="HbI-Qc-R1v" customClass="CustomTableViewCell" customModule="class_61_crud" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="302"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HbI-Qc-R1v" id="6e6-id-8y9">
@@ -57,6 +57,9 @@
                                                     <state key="normal" title="Update">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="updateButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="c3y-8b-bjQ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-0e-m5M">
                                                     <rect key="frame" x="206" y="243" width="168" height="41"/>
@@ -69,6 +72,9 @@
                                                     <state key="normal" title="Delete">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="DeleteButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="eox-O0-Etr"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knp-Ta-Pyq">
                                                     <rect key="frame" x="162" y="21" width="192" height="59"/>
@@ -104,6 +110,12 @@
                                                 <constraint firstItem="Hhc-wk-CHA" firstAttribute="leading" secondItem="6e6-id-8y9" secondAttribute="leadingMargin" constant="11" id="uff-Cn-96e"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionViewCell" destination="h0i-Ua-UF8" id="8fS-EV-yxi"/>
+                                            <outlet property="genderViewCell" destination="Hhc-wk-CHA" id="C8h-He-3di"/>
+                                            <outlet property="imageCellView" destination="Oj3-yh-Rkd" id="7bN-xL-LbJ"/>
+                                            <outlet property="nameViewCell" destination="knp-Ta-Pyq" id="a8S-Ln-Qwo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -130,6 +142,9 @@
                                         <state key="normal" title="Add">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addButtonAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8eW-da-hlB"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGQ-is-pwz">
                                         <rect key="frame" x="33" y="129" width="127" height="82"/>
@@ -146,6 +161,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Grnder"/>
+                                        <connections>
+                                            <action selector="genderButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vhe-z3-mJs"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profile Description " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-Yh-R8s">
                                         <rect key="frame" x="20" y="87" width="355" height="34"/>
@@ -185,6 +203,13 @@
                             <constraint firstItem="Wt6-6Q-FVF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jBH-kL-Z45"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionConn" destination="VeM-Yh-R8s" id="T3z-sV-VUS"/>
+                        <outlet property="fullNameConn" destination="f6v-M2-O6R" id="abl-t7-Gf2"/>
+                        <outlet property="genderConn" destination="Zr6-lM-xv2" id="74P-fl-t00"/>
+                        <outlet property="imageConn" destination="EGQ-is-pwz" id="Fgc-1E-irW"/>
+                        <outlet property="tableViewUser" destination="COu-K5-0Kx" id="PGz-Ic-pws"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,11 +288,15 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cI-gJ-kVr">
                                 <rect key="frame" x="43" y="552" width="351" height="57"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="351" id="OD3-V3-67r"/>
                                     <constraint firstAttribute="height" constant="57" id="l0C-Tm-etb"/>
                                 </constraints>
-                                <state key="normal" title="Confrom Update"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Confrom Update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="55n-ax-I1K"/>
