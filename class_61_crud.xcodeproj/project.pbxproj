@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		812CFBCDED4B3CCAE3EF5D9A /* Pods_class_61_crud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852E27F7929F7A89CBEFCBAD /* Pods_class_61_crud.framework */; };
+		8AC6A52F2574CF0F009ED730 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6A52E2574CF0F009ED730 /* UpdateViewController.swift */; };
 		8AD80E42256F707100B2B26A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD80E41256F707100B2B26A /* User.swift */; };
 		8AD80E46256F728000B2B26A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD80E45256F728000B2B26A /* Model.swift */; };
 		8AD80E49256F72AC00B2B26A /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD80E48256F72AC00B2B26A /* Manager.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		852E27F7929F7A89CBEFCBAD /* Pods_class_61_crud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_class_61_crud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AC6A52E2574CF0F009ED730 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		8AD80E41256F707100B2B26A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AD80E45256F728000B2B26A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8AD80E48256F72AC00B2B26A /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				8AFFAF59256E0B0400049C18 /* ViewController.swift */,
 				8AD80E4B256F744100B2B26A /* CustomTableViewCell.swift */,
+				8AC6A52E2574CF0F009ED730 /* UpdateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				8AFFAF5A256E0B0400049C18 /* ViewController.swift in Sources */,
 				8AFFAF56256E0B0400049C18 /* AppDelegate.swift in Sources */,
 				8AFFAF58256E0B0400049C18 /* SceneDelegate.swift in Sources */,
+				8AC6A52F2574CF0F009ED730 /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

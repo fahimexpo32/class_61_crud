@@ -58,7 +58,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="updateButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="c3y-8b-bjQ"/>
+                                                        <action selector="updateButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="6ww-4S-Im0"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-0e-m5M">
@@ -73,7 +73,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="DeleteButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="eox-O0-Etr"/>
+                                                        <action selector="DeleteButtonCell:" destination="HbI-Qc-R1v" eventType="touchUpInside" id="W5n-OJ-DMA"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knp-Ta-Pyq">
@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="-197.10144927536234" y="56.919642857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Update View Controller-->
         <scene sceneID="VKG-F0-r6E">
             <objects>
-                <viewController id="wQa-Lb-UGI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdateViewController" id="wQa-Lb-UGI" customClass="UpdateViewController" customModule="class_61_crud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rgi-Cx-HSQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,6 +297,9 @@
                                 <state key="normal" title="Confrom Update">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="updateUpbuttonAction:" destination="wQa-Lb-UGI" eventType="touchUpInside" id="NPV-YP-kIC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="55n-ax-I1K"/>
@@ -320,6 +323,12 @@
                             <constraint firstItem="4cI-gJ-kVr" firstAttribute="top" secondItem="vZf-jc-fqK" secondAttribute="bottom" constant="68" id="zNQ-OZ-sYF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionUp" destination="dTk-40-nIc" id="6DR-HU-KIa"/>
+                        <outlet property="genderUp" destination="M56-nO-xDk" id="cJl-Fv-b41"/>
+                        <outlet property="imageUP" destination="vZf-jc-fqK" id="adK-S4-RAF"/>
+                        <outlet property="nameUp" destination="BYK-qP-orT" id="ohF-Sg-jcL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5I-3C-2Q6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var tableViewUser: UITableView!
-    
     @IBOutlet weak var genderConn: UIButton!
     @IBOutlet weak var fullNameConn: UITextField!
     @IBOutlet weak var descriptionConn: UITextField!
@@ -24,13 +23,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let dropDown = DropDown()
     var users = [User]()
     var manager = Manager()
+    var id = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        manager.delegate = self
         tableViewUser.delegate = self
         tableViewUser.dataSource = self
-        manager.delegate = self
+        
+      
         
         dropDown.anchorView = genderConn
         dropDown.dataSource = ["male", "female", "others"]
@@ -40,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.genderConn.setTitle(item, for: .normal)
             
         }
+        manager.read()
     }
     
     
@@ -59,16 +62,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         else {
             return
         }
+        print(fullName)
+        print(description)
+        print(gender)
+        
         let user = User(fullName: fullName, Description: description, gender: gender)
         
         manager.create(addData: user)
+        fullNameConn.text = ""
+        descriptionConn.text = ""
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return users.count
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 302
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCellIdentyfier", for: indexPath) as! CustomTableViewCell
@@ -76,6 +90,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.nameViewCell.text = user.fullName
         cell.descriptionViewCell.text = user.Description
         cell.genderViewCell.setTitle(user.gender, for: .normal)
+        
+        cell.cellDelegate = self
+        
+       
         
         return cell
     }
@@ -89,11 +107,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 extension ViewController: ManagerProtocol {
-    func fetchData(modelData: Model) {
+    func fetchData(modelData: [User], idHold: [String]) {
         DispatchQueue.main.async {
-            self.users = modelData.users
+            
+            self.users = modelData
+            self.id = idHold
             self.tableViewUser.reloadData()
+           
         }
     }
 }
 
+extension ViewController: CustomCellDelegate {
+    func updateCellButtonAction(cell: CustomTableViewCell, didTabButton button: UIButton?) {
+        print("cick Button")
+        guard let indexPath = tableViewUser.indexPath(for: cell ) else {
+            return
+        }
+        
+        let updateVc = storyboard?.instantiateViewController(identifier: "UpdateViewController") as! UpdateViewController
+        
+        updateVc.id = id[indexPath.row]
+        updateVc.nameUpdate = cell.nameViewCell.text ?? ""
+        updateVc.descriptionUpadte = cell.descriptionViewCell.text
+        updateVc.genderUpdate = cell.genderViewCell.titleLabel?.text ?? ""
+        print("----------->>>>>")
+        navigationController?.pushViewController(updateVc, animated: true)
+        print(">>>>>>>>>")
+    }
+    
+    func deleteCellButtonAction(cell: CustomTableViewCell, didTabButton button: UIButton?) {
+        
+        guard let indexPath = tableViewUser.indexPath(for: cell ) else {
+            return
+           
+        }
+        manager.delete(deleteId: id[indexPath.row])
+        
+        
+    }
+    
+    
+}

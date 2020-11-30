@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
 
-
-struct User {
+struct User: Codable {
     var fullName: String
     var Description: String
     var gender: String
     //var image: UIImage
 }
+
